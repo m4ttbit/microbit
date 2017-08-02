@@ -13,10 +13,19 @@ all_firework = [firework1, firework2, firework3, firework4, firework5, firework6
 
 while True:
     if button_a.is_pressed():
+        display.clear()
         display.show(all_firework, delay=200)
         display.clear()
     elif button_b.is_pressed():
+        display.clear()
         display.scroll('Hi!')
         display.show(Image.PACMAN)
         sleep(1000)
         display.clear()
+    elif accelerometer.was_gesture("shake"):
+        display.show(Image.CONFUSED)
+        sleep(5000)
+        display.clear()
+    else:
+        display.clear()
+        display.show(Image.HAPPY)
